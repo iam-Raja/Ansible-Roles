@@ -1,4 +1,5 @@
 [db]
 db.rajapeta.cloud
+
 [all:vars]
 ansible_password=DevOps321
