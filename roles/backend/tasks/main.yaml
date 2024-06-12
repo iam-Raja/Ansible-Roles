@@ -49,7 +49,7 @@
 
 - name: connection check & setup mysql cred
   community.mysql.mysql_db:
-    login_user: root
+    login_user: "{{ login_user }}"
     login_password: "{{ password }}"
     login_host: "{{ host }}"    
     target: /app/schema/backend.sql
