@@ -1,5 +1,5 @@
 - name: install nginx
-    dnf:
+  dnf:
      name: nginx
      state: installed #latest or installed both are same
 
