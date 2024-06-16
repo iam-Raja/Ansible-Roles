@@ -33,7 +33,7 @@
 #if there is change in config, system restart is required
 
 - name: Copy a expenxe.conf file on the remote machine
-  ansible.builtin.templare:
+  ansible.builtin.template:
     src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
   notify:
