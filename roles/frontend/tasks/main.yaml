@@ -3,11 +3,11 @@
     name: nginx
     state: installed #latest or installed both are same
 
-- name: start & enable nginx
-  service:
-    name: nginx
-    state: started
-    enabled: yes
+# - name: start & enable nginx
+#   service:
+#     name: nginx
+#     state: started
+#     enabled: yes
 
 - name: Remove file (delete file)
   ansible.builtin.file:
@@ -40,9 +40,10 @@
   - restart nginx 
 
 
-# - name: Restart nginx 
-#   service:
-#     name: nginx
-#     state: restarted
+- name: Restart nginx 
+  service:
+    name: nginx
+    state: restarted
+    enabled: true
 
     
