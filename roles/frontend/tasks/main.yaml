@@ -34,13 +34,13 @@
   ansible.builtin.copy:
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
-  notify:
-  - Restart nginx  
+  # notify:
+  # - Restart nginx  
 
 #if there is change in config, system restart is required
-  # - name: Restart nginx 
-  #   service:
-  #    name: nginx
-  #    state: restarted
+  - name: Restart nginx 
+    service:
+     name: nginx
+     state: restarted
 
     
