@@ -30,17 +30,19 @@
     dest: /usr/share/nginx/html
     remote_src: yes
 
-- name: Copy a expenxe.conf file on the remote machine
-  ansible.builtin.copy:
-    src: expense.conf
-    dest: /etc/nginx/default.d/expense.conf
-  # notify:
-  # - Restart nginx  
-
 #if there is change in config, system restart is required
-- name: Restart nginx 
-  service:
-    name: nginx
-    state: restarted
+
+- name: Copy a expenxe.conf file on the remote machine
+  ansible.builtin.templare:
+    src: expense.conf.j2
+    dest: /etc/nginx/default.d/expense.conf
+  notify:
+  - restart nginx 
+
+
+# - name: Restart nginx 
+#   service:
+#     name: nginx
+#     state: restarted
 
     
