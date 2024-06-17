@@ -9,26 +9,10 @@
 #     state: started
 #     enabled: yes
 
-- name: Remove file (delete file)
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
-
-- name: creating dir
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
-
-- name: Download frontend code
-  ansible.builtin.get_url:
-    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-    dest: /tmp/frontend.zip
-
-- name: Unsipping a file that is already on the remote machine
-  ansible.builtin.unarchive:
-    src: /tmp/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
+- name: run app-requisities
+  ansible.builtin.import_roles:
+  name: common
+  tasks_from: app-pre-req
 
 #if there is change in config, system restart is required
 

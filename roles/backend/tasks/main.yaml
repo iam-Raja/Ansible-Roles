@@ -15,21 +15,11 @@
   ansible.builtin.user:  
     name: expense
 
-- name: create dir
-  ansible.builtin.file:
-    name: /app   
-    state: directory
+- name: run app-requisities
+  ansible.builtin.import_roles:
+  name: common
+  tasks_from: app-pre-req
 
-- name: Download backed code
-  ansible.builtin.get_url:
-    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
-    dest: /tmp/backend.zip
-
-- name: Unarchive or unzip
-  ansible.builtin.unarchive:
-    src: /tmp/backend.zip
-    dest: /app
-    remote_src: yes
 - name: downloading dependicies & change dir(with 'args' keyword)
   ansible.builtin.command: npm install
   args:
