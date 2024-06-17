@@ -16,9 +16,9 @@
     name: expense
 
 - name: run app-requisities
-  ansible.builtin.import_roles:
-  name: common
-  tasks_from: app-pre-req
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-pre-req
 
 - name: downloading dependicies & change dir(with 'args' keyword)
   ansible.builtin.command: npm install
