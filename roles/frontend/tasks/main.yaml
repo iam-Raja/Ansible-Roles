@@ -11,8 +11,8 @@
 
 - name: run app-requisities
   ansible.builtin.import_roles:
-  name: common
-  tasks_from: app-pre-req
+    name: common
+    tasks_from: app-pre-req
 
 #if there is change in config, system restart is required
 
