@@ -9,8 +9,8 @@
 #     state: started
 #     enabled: yes
 
-- name: run app-requisities
-  ansible.builtin.import_roles:
+- name : run app-requisities
+  import_roles:
     name: common
     tasks_from: app-pre-req
 
